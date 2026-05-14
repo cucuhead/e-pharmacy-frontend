@@ -1,0 +1,94 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.button {
+  @include flex-center;
+  gap: $space-2;
+  padding: $space-3 $space-7;
+  border-radius: $radius-pill;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-tight;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color $transition-fast, border-color $transition-fast,
+    color $transition-fast, opacity $transition-fast;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+// === Variants ===
+
+.primary {
+  background-color: $color-brand;
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    background-color: $color-brand-hover;
+  }
+
+  &:disabled {
+    background-color: $color-bg-disabled;
+    color: $color-text-disabled;
+    opacity: 1;
+  }
+}
+
+.secondary {
+  background-color: transparent;
+  color: $color-brand;
+  border-color: $color-brand;
+
+  &:hover:not(:disabled) {
+    background-color: $color-brand-10;
+  }
+}
+
+.cancel {
+  background-color: $color-bg-disabled;
+  color: $color-text-muted;
+
+  &:hover:not(:disabled) {
+    background-color: darken($color-bg-disabled, 5%);
+  }
+}
+
+.danger {
+  background-color: $color-danger;
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    background-color: darken($color-danger, 8%);
+  }
+}
+
+// === Sizes ===
+
+.sm {
+  padding: $space-2 $space-5;
+  font-size: $font-size-sm;
+}
+
+.md {
+  // default — above
+}
+
+.lg {
+  padding: $space-4 $space-9;
+  font-size: $font-size-lg;
+}
+
+// === Full width ===
+
+.fullWidth {
+  width: 100%;
+}
