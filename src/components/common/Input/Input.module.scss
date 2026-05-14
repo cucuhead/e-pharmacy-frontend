@@ -1,0 +1,96 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: $space-4 $space-5;
+  border-radius: $radius-pill;
+  border: 1px solid $color-border-input;
+  background-color: #fff;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-tight;
+  color: $color-text-primary;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:hover:not(:disabled):not(:focus) {
+    border-color: $color-brand;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-brand;
+  }
+
+  &:disabled {
+    background-color: $color-bg-input;
+    color: $color-text-disabled;
+    cursor: not-allowed;
+  }
+}
+
+// Variants
+
+.error {
+  border-color: $color-danger;
+
+  &:hover:not(:focus) {
+    border-color: $color-danger;
+  }
+
+  &:focus {
+    border-color: $color-danger;
+  }
+}
+
+.filled {
+  // Mockup pattern: green border for valid filled state
+  border-color: $color-brand;
+  color: $color-brand;
+}
+
+// Right adornment (eye toggle, calendar etc.)
+
+.hasRight {
+  padding-right: $space-9;
+}
+
+.rightSlot {
+  position: absolute;
+  right: $space-5;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  color: $color-text-muted;
+  cursor: pointer;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+
+  &:hover {
+    color: $color-text-primary;
+  }
+}
+
+// Error message
+
+.errorMessage {
+  display: block;
+  margin-top: $space-2;
+  margin-left: $space-5;
+  color: $color-danger;
+  font-size: $font-size-sm;
+}

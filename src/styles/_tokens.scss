@@ -1,0 +1,116 @@
+// === COLORS ===
+
+// Brand
+$color-brand: #59B17A;
+$color-brand-hover: #4A9968;
+$color-brand-10: rgba(89, 177, 122, 0.1);
+
+// Semantic
+$color-danger: #E85050;
+$color-danger-10: rgba(232, 80, 80, 0.1);
+
+// Text
+$color-text-primary: #1D1E21;
+$color-text-secondary: #59B17A;
+$color-text-muted: #898989;
+$color-text-disabled: #b9b9b9;
+
+// Background
+$color-bg-page: #F9F9F9;          // UI kit #F9F9F9
+$color-bg-card: #FFFFFF;          // UI kit white
+$color-bg-soft: #E7F1ED;          // UI kit açık yeşil (tablo header)
+$color-bg-input: #F7F7F8;         // UI kit açık gri (pasif input)
+$color-bg-disabled: #DCDDDF;      // UI kit disabled button bg
+
+// Border
+$color-border: #F2F2F2;
+$color-border-input: #E7F1ED;
+$color-border-focus: #59B17A;
+
+// === STATUS BADGES ===
+// Mockup pattern: pastel pill, colored text, soft dot
+// Her badge için %15-20 opacity bg + saturated text
+
+$status-completed-bg: rgba(89, 177, 122, 0.15);
+$status-completed-text: #59B17A;
+
+$status-confirmed-bg: rgba(123, 97, 255, 0.15);
+$status-confirmed-text: #7B61FF;
+
+$status-pending-bg: rgba(238, 159, 56, 0.15);
+$status-pending-text: #EE9F38;
+
+$status-cancelled-bg: rgba(232, 80, 80, 0.15);
+$status-cancelled-text: #E85050;
+
+$status-processing-bg: rgba(88, 145, 220, 0.15);
+$status-processing-text: #5891DC;
+
+// Shipped + Delivered (JSON'da var, UI kit'te yok — mantıklı eşleme)
+$status-shipped-bg: rgba(123, 97, 255, 0.15);
+$status-shipped-text: #7B61FF;
+
+$status-delivered-bg: rgba(89, 177, 122, 0.15);
+$status-delivered-text: #59B17A;
+
+// === TYPOGRAPHY ===
+
+$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-2xl: 24px;
+$font-size-3xl: 32px;
+$font-size-4xl: 48px;             // Login big headline
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$line-height-tight: 1.2;
+$line-height-base: 1.4;
+$line-height-relaxed: 1.6;
+
+// === SPACING (8pt scale) ===
+
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 20px;
+$space-6: 24px;
+$space-7: 32px;
+$space-8: 40px;
+$space-9: 48px;
+$space-10: 64px;
+
+// === RADII ===
+
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-pill: 30px;               // Mockup pill shape (button/input)
+$radius-circle: 50%;
+
+// === BREAKPOINTS ===
+
+$breakpoint-mobile-min: 375px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1440px;
+
+// === SHADOWS ===
+
+$shadow-card: 0 1px 3px rgba(29, 30, 33, 0.06);
+$shadow-card-hover: 0 4px 12px rgba(29, 30, 33, 0.08);
+$shadow-modal: 0 8px 32px rgba(29, 30, 33, 0.12);
+$shadow-focus: 0 0 0 3px rgba(89, 177, 122, 0.2);
+
+// === TRANSITIONS ===
+
+$transition-fast: 150ms ease;
+$transition-base: 250ms ease;
