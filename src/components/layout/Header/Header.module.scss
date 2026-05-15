@@ -1,0 +1,133 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.header {
+  background-color: $color-bg-card;
+  border-bottom: 1px solid $color-border;
+  padding: $space-4 $space-5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-4;
+  flex-wrap: wrap;
+
+  @include tablet-up {
+    padding: $space-5 $space-7;
+  }
+
+  @include desktop-up {
+    padding: $space-5 $space-8;
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  flex: 1;
+  min-width: 0;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logoMark {
+  width: 36px;
+  height: 36px;
+  background-color: $color-brand;
+  border-radius: 8px;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    border-radius: 1px;
+  }
+
+  &::before {
+    width: 18px;
+    height: 5px;
+    transform: translate(-50%, -50%);
+  }
+
+  &::after {
+    width: 5px;
+    height: 18px;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  line-height: $line-height-tight;
+
+  @include tablet-up {
+    font-size: $font-size-2xl;
+  }
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  margin-top: 2px;
+}
+
+.subtitleLink {
+  color: $color-text-muted;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-text-primary;
+  }
+}
+
+.divider {
+  color: $color-text-disabled;
+}
+
+.email {
+  @include truncate;
+  max-width: 220px;
+}
+
+.logoutBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-circle;
+  background-color: $color-brand;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  flex-shrink: 0;
+  transition: background-color $transition-fast;
+
+  &:hover:not(:disabled) {
+    background-color: $color-brand-hover;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

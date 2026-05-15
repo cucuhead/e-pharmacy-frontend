@@ -1,0 +1,29 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.layout {
+  min-height: 100vh;
+  background-color: $color-bg-page;
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  position: relative;
+}
+
+.main {
+  flex: 1;
+  padding: $space-5 $space-4;
+  min-width: 0; // grid/flex children'in overflow olmaması için
+
+  @include tablet-up {
+    padding: $space-6;
+  }
+
+  @include desktop-up {
+    padding: $space-7;
+  }
+}

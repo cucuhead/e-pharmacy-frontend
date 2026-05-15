@@ -1,0 +1,54 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.sidebar {
+  background-color: $color-bg-card;
+  border-right: 1px solid $color-border;
+  padding: $space-5 $space-3;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  flex-shrink: 0;
+  width: 72px;
+
+  @include tablet-up {
+    width: 80px;
+    padding: $space-6 $space-4;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  align-items: center;
+}
+
+.navItem {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-circle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-bg-page;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  transition: background-color $transition-fast, color $transition-fast;
+
+  &:hover {
+    background-color: $color-brand-10;
+    color: $color-brand;
+  }
+}
+
+.active {
+  background-color: $color-brand;
+  color: #fff;
+
+  &:hover {
+    background-color: $color-brand-hover;
+    color: #fff;
+  }
+}
