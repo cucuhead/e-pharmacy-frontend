@@ -1,0 +1,59 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.card {
+  background-color: $color-bg-card;
+  border: 1px solid transparent;
+  border-radius: $radius-lg;
+  padding: $space-5 $space-6;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+
+  &:hover {
+    border-color: $color-brand-10;
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+.active {
+  border-color: $color-brand;
+
+  &:hover {
+    border-color: $color-brand;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+}
+
+.iconWrap {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-brand-10;
+  border-radius: $radius-sm;
+  color: $color-brand;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  flex-shrink: 0;
+}
+
+.value {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  line-height: $line-height-tight;
+
+  @include desktop-up {
+    font-size: 36px;
+  }
+}
