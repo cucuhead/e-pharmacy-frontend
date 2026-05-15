@@ -1,0 +1,210 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  min-height: 100vh;
+  background-color: $color-bg-page;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+// === Header (logo) ===
+
+.header {
+  padding: $space-6 $space-6;
+
+  @include tablet-up {
+    padding: $space-7 $space-8;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.logoMark {
+  width: 28px;
+  height: 28px;
+  background-color: $color-brand;
+  border-radius: 6px;
+  position: relative;
+  flex-shrink: 0;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    border-radius: 1px;
+  }
+
+  &::before {
+    width: 14px;
+    height: 4px;
+    transform: translate(-50%, -50%);
+  }
+
+  &::after {
+    width: 4px;
+    height: 14px;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// === Main content ===
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: $space-6;
+  gap: $space-8;
+  align-items: center;
+  justify-content: center;
+
+  @include tablet-up {
+    padding: $space-8 $space-9;
+  }
+
+  @include desktop-up {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 $space-10;
+    gap: 150px; // form ile sol kolon arası — mockup'a göre artırıldı
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+// === Left side: headline + pill ===
+
+.left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+
+  @include desktop-up {
+    width: 500px;
+  }
+}
+
+.headline {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  line-height: $line-height-tight;
+  position: relative;
+  z-index: 2;
+
+  @include tablet-up {
+    font-size: 40px;
+  }
+
+  @include desktop-up {
+    font-size: 44px;
+  }
+}
+
+.highlight {
+  color: $color-brand;
+}
+
+.pill {
+  display: none;
+
+  @include desktop-up {
+    display: block;
+    position: absolute;
+    top: -120px;       // -100 → -120 (biraz yukarı)
+    left: 360px;       // 320 → 360 (biraz sağa)
+    width: 180px;
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+// === Right side: form ===
+
+.formWrapper {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+
+  @include desktop-up {
+    flex-shrink: 0;
+    width: 360px;
+    max-width: 360px;
+  }
+}
+
+.formError {
+  color: $color-danger;
+  font-size: $font-size-sm;
+  text-align: center;
+  min-height: 20px;
+}
+
+// === Decorative shapes (bottom-right) ===
+
+.decorations {
+  position: absolute;
+  bottom: 0;
+  right: -120px;
+  width: 540px;
+  height: 320px;
+  pointer-events: none;
+  z-index: 0;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: $color-brand-10;
+    border-radius: $radius-pill;
+    width: 480px;
+    height: 60px;
+    right: 0;
+    transform: rotate(45deg);
+  }
+
+  // Üst şerit
+  &::before {
+    bottom: 200px;
+  }
+
+  // Orta şerit
+  &::after {
+    bottom: 110px;
+    right: 30px;
+  }
+}
+
+// 3. şerit — ::before/::after'la sadece 2 olabiliyor, üçüncüyü ayrı bir span ile yapacağız
+.decorationsThird {
+  position: absolute;
+  background-color: $color-brand-10;
+  border-radius: $radius-pill;
+  width: 480px;
+  height: 60px;
+  bottom: 20px;
+  right: -60px;
+  transform: rotate(45deg);
+  pointer-events: none;
+  z-index: 0;
+}
