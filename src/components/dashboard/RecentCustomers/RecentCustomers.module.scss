@@ -1,0 +1,101 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.panel {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: $color-bg-soft;
+  padding: $space-4 $space-5;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $font-size-sm;
+
+  th,
+  td {
+    padding: $space-4 $space-5;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    color: $color-text-muted;
+    font-weight: $font-weight-regular;
+    font-size: $font-size-sm;
+    border-bottom: 1px solid $color-border;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid $color-border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.nameCell {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  min-width: 0;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-circle;
+  object-fit: cover;
+  flex-shrink: 0;
+  background-color: $color-bg-input;
+}
+
+.avatarFallback {
+  @extend .avatar;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-brand-10;
+  color: $color-brand;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+}
+
+.name {
+  @include truncate;
+}
+
+.email {
+  color: $color-text-muted;
+  @include truncate;
+  max-width: 200px;
+}
+
+.spent {
+  color: $color-text-primary;
+  white-space: nowrap;
+}
+
+.empty {
+  padding: $space-7;
+  text-align: center;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+}

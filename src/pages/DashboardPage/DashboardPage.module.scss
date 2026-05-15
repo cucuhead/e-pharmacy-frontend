@@ -1,0 +1,48 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+
+  @include tablet-up {
+    gap: $space-6;
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-4;
+
+  @include tablet-up {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-5;
+  }
+}
+
+.tables {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-5;
+
+  @include desktop-up {
+    grid-template-columns: 1fr 1fr;
+    gap: $space-6;
+  }
+}
+
+.loading,
+.errorMsg {
+  padding: $space-7;
+  text-align: center;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+}
+
+.errorMsg {
+  color: $color-danger;
+}

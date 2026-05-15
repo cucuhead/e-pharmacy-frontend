@@ -1,0 +1,104 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.panel {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: $color-bg-soft;
+  padding: $space-4 $space-5;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.subHeader {
+  padding: $space-4 $space-5 $space-2;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  border-bottom: 1px solid $color-border;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 110px 1fr auto;
+  align-items: center;
+  gap: $space-4;
+  padding: $space-4 $space-5;
+  border-bottom: 1px solid $color-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px $space-3;
+  border-radius: $radius-pill;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  text-transform: capitalize;
+  white-space: nowrap;
+  justify-self: start;
+}
+
+.income {
+  background-color: $status-completed-bg;
+  color: $status-completed-text;
+}
+
+.expense {
+  background-color: $color-danger-10;
+  color: $color-danger;
+}
+
+.error {
+  background-color: $color-bg-input;
+  color: $color-text-muted;
+}
+
+.title {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  @include truncate;
+  min-width: 0;
+}
+
+.amount {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+}
+
+.amountIncome {
+  color: $status-completed-text;
+}
+
+.amountExpense {
+  color: $color-danger;
+}
+
+.amountError {
+  color: $color-text-muted;
+  text-decoration: line-through;
+}
+
+.empty {
+  padding: $space-7;
+  text-align: center;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+}
