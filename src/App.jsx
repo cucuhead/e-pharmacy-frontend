@@ -7,14 +7,22 @@ import { getAccessToken } from '@services/axios';
 
 import PrivateRoute from '@components/route/PrivateRoute';
 import PublicRoute from '@components/route/PublicRoute';
+import SharedLayout from '@components/layout/SharedLayout';
 
 import LoginPage from '@pages/LoginPage/LoginPage';
 import DashboardPage from '@pages/DashboardPage/DashboardPage';
 
+// Geçici placeholder sayfalar (Day 8-9'da gerçek içerik gelecek)
+const PlaceholderPage = ({ title }) => (
+  <div style={{ padding: '40px' }}>
+    <h1 style={{ fontSize: '32px' }}>{title} (placeholder)</h1>
+    <p style={{ color: '#898989' }}>Coming soon — Day 8/9.</p>
+  </div>
+);
+
 function App() {
   const dispatch = useDispatch();
 
-  // App boot sırasında token varsa user bilgisini çek
   useEffect(() => {
     if (getAccessToken()) {
       dispatch(fetchUserInfo());
@@ -33,28 +41,24 @@ function App() {
         }
       />
 
-      {/* Private */}
+      {/* Private — hepsi SharedLayout içinde */}
       <Route
-        path="/home"
         element={
           <PrivateRoute>
-            <DashboardPage />
+            <SharedLayout />
           </PrivateRoute>
         }
-      />
-      <Route
-        path="/dashboard"
-        element={
-          <PrivateRoute>
-            <DashboardPage />
-          </PrivateRoute>
-        }
-      />
+      >
+        <Route path="/home" element={<DashboardPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/orders" element={<PlaceholderPage title="Orders" />} />
+        <Route path="/products" element={<PlaceholderPage title="Products" />} />
+        <Route path="/suppliers" element={<PlaceholderPage title="Suppliers" />} />
+        <Route path="/customers" element={<PlaceholderPage title="Customers" />} />
+      </Route>
 
-      {/* Default redirect: kullanıcı root'a giderse home'a yönlendir */}
+      {/* Defaults */}
       <Route path="/" element={<Navigate to="/home" replace />} />
-
-      {/* Catch-all: bilinmeyen URL'ler home'a */}
       <Route path="*" element={<Navigate to="/home" replace />} />
     </Routes>
   );
