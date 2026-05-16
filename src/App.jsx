@@ -14,13 +14,7 @@ import DashboardPage from '@pages/DashboardPage/DashboardPage';
 import OrdersPage from '@pages/OrdersPage/OrdersPage';
 import ProductsPage from '@pages/ProductsPage/ProductsPage';
 import SuppliersPage from '@pages/SuppliersPage/SuppliersPage';
-// Geçici placeholder sayfalar (Day 8-9'da gerçek içerik gelecek)
-const PlaceholderPage = ({ title }) => (
-  <div style={{ padding: '40px' }}>
-    <h1 style={{ fontSize: '32px' }}>{title} (placeholder)</h1>
-    <p style={{ color: '#898989' }}>Coming soon — Day 8/9.</p>
-  </div>
-);
+import CustomersPage from '@pages/CustomersPage/CustomersPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -55,8 +49,8 @@ function App() {
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/orders" element={<OrdersPage />} />
         <Route path="/products" element={<ProductsPage />} />
-<Route path="/suppliers" element={<SuppliersPage />} />
-        <Route path="/customers" element={<PlaceholderPage title="Customers" />} />
+        <Route path="/suppliers" element={<SuppliersPage />} />
+        <Route path="/customers" element={<CustomersPage />} />
       </Route>
 
       {/* Defaults */}
