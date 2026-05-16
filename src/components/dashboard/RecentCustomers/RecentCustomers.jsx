@@ -1,14 +1,8 @@
 import { formatMoney } from '@utils/formatters';
+import Avatar from '@components/common/Avatar';
 import styles from './RecentCustomers.module.scss';
 
-const getInitials = (name = '') =>
-  name
-    .split(' ')
-    .map((w) => w[0])
-    .filter(Boolean)
-    .slice(0, 2)
-    .join('')
-    .toUpperCase();
+
 
 const RecentCustomers = ({ customers = [] }) => {
   return (
@@ -32,21 +26,7 @@ const RecentCustomers = ({ customers = [] }) => {
                 <tr key={c._id}>
                   <td>
                     <div className={styles.nameCell}>
-                      {c.image ? (
-                        <img
-                          src={c.image}
-                          alt=""
-                          className={styles.avatar}
-                          loading="lazy"
-                          onError={(e) => {
-                            e.currentTarget.style.display = 'none';
-                          }}
-                        />
-                      ) : (
-                        <span className={styles.avatarFallback} aria-hidden="true">
-                          {getInitials(c.name)}
-                        </span>
-                      )}
+                     <Avatar name={c.name} />
                       <span className={styles.name}>{c.name}</span>
                     </div>
                   </td>
@@ -54,7 +34,7 @@ const RecentCustomers = ({ customers = [] }) => {
                   <td className={styles.spent}>{formatMoney(c.spent)}</td>
                 </tr>
               ))}
-            </tbody>
+            </tbody>   
           </table>
         </div>
       )}

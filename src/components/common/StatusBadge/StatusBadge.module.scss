@@ -1,0 +1,54 @@
+@use '../../../styles/tokens' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: $radius-pill;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+
+.completed {
+  background-color: $status-completed-bg;
+  color: $status-completed-text;
+}
+
+.confirmed {
+  background-color: $status-confirmed-bg;
+  color: $status-confirmed-text;
+}
+
+.pending {
+  background-color: $status-pending-bg;
+  color: $status-pending-text;
+}
+
+.cancelled {
+  background-color: $status-cancelled-bg;
+  color: $status-cancelled-text;
+}
+
+.processing {
+  background-color: $status-processing-bg;
+  color: $status-processing-text;
+}
+
+.shipped {
+  background-color: $status-shipped-bg;
+  color: $status-shipped-text;
+}
+
+.delivered {
+  background-color: $status-delivered-bg;
+  color: $status-delivered-text;
+}
+
+// Bilinmeyen status için fallback
+.default {
+  background-color: $color-bg-input;
+  color: $color-text-muted;
+}

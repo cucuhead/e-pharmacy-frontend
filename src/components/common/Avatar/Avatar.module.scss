@@ -1,0 +1,24 @@
+@use '../../../styles/tokens' as *;
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-circle;
+  object-fit: cover;
+  flex-shrink: 0;
+  background-color: $color-bg-input;
+}
+
+.fallback {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-circle;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-brand-10;
+  color: $color-brand;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+}
