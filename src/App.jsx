@@ -11,7 +11,7 @@ import SharedLayout from '@components/layout/SharedLayout';
 
 import LoginPage from '@pages/LoginPage/LoginPage';
 import DashboardPage from '@pages/DashboardPage/DashboardPage';
-
+import OrdersPage from '@pages/OrdersPage/OrdersPage';
 // Geçici placeholder sayfalar (Day 8-9'da gerçek içerik gelecek)
 const PlaceholderPage = ({ title }) => (
   <div style={{ padding: '40px' }}>
@@ -51,7 +51,7 @@ function App() {
       >
         <Route path="/home" element={<DashboardPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/orders" element={<PlaceholderPage title="Orders" />} />
+        <Route path="/orders" element={<OrdersPage />} />
         <Route path="/products" element={<PlaceholderPage title="Products" />} />
         <Route path="/suppliers" element={<PlaceholderPage title="Suppliers" />} />
         <Route path="/customers" element={<PlaceholderPage title="Customers" />} />
