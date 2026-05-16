@@ -1,0 +1,140 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-4;
+  flex-wrap: wrap;
+}
+
+.filterForm {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  flex-wrap: wrap;
+}
+
+.filterInput {
+  width: 240px;
+  max-width: 100%;
+}
+
+.panel {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  overflow: hidden;
+}
+
+.panelHeader {
+  background-color: $color-bg-soft;
+  padding: $space-4 $space-5;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $font-size-sm;
+  min-width: 820px;
+
+  th,
+  td {
+    padding: $space-4 $space-5;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    color: $color-text-muted;
+    font-weight: $font-weight-regular;
+    border-bottom: 1px solid $color-border;
+    white-space: nowrap;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid $color-border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.nameCell {
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+}
+
+.truncate {
+  @include truncate;
+  max-width: 180px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px $space-3;
+  border-radius: $radius-pill;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+}
+
+.statusActive {
+  background-color: $status-completed-bg;
+  color: $status-completed-text;
+}
+
+.statusDeactive {
+  background-color: $color-danger-10;
+  color: $color-danger;
+}
+
+.editBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  padding: $space-2 $space-4;
+  border-radius: $radius-pill;
+  border: 1px solid $color-border;
+  background-color: transparent;
+  color: $color-text-primary;
+  font-size: $font-size-sm;
+  transition: border-color $transition-fast, color $transition-fast;
+
+  &:hover {
+    border-color: $color-brand;
+    color: $color-brand;
+  }
+}
+
+.loading,
+.errorMsg,
+.empty {
+  padding: $space-8;
+  text-align: center;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+}
+
+.errorMsg {
+  color: $color-danger;
+}

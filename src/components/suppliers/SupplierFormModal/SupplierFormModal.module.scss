@@ -1,0 +1,121 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-4;
+
+  @include mobile-only {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  min-width: 0;
+}
+
+.error {
+  color: $color-danger;
+  font-size: $font-size-xs;
+  margin-left: $space-4;
+}
+
+.actions {
+  display: flex;
+  gap: $space-3;
+  margin-top: $space-5;
+}
+
+// Native select — Input ile aynı pill görünümü
+.select {
+  width: 100%;
+  height: 54px;
+  padding: 0 $space-5;
+  border-radius: $radius-pill;
+  border: 1px solid $color-border-input;
+  background-color: #fff;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $color-text-primary;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23898989' d='M1 1l5 5 5-5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right $space-5 center;
+
+  &:hover {
+    border-color: $color-brand;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-brand;
+  }
+}
+
+// MUI Date Picker — Input görünümüne çek
+// MUI Date Picker — Input görünümüne çek
+// MUI Date Picker — bizim Input ile birebir aynı kenar
+// MUI Date Picker — bizim Input ile birebir aynı pill kenar
+// MUI Date Picker — bizim Input ile birebir aynı pill kenar
+// MUI X v9 Date Picker — bizim Input ile birebir aynı pill kenar
+.datePicker {
+  width: 100%;
+
+  // Dış kapsayıcı (v9: MuiPickersOutlinedInput-root)
+  :global(.MuiPickersOutlinedInput-root) {
+    height: 54px !important;
+    width: 100% !important;
+    border-radius: $radius-pill !important;
+    border: 1px solid $color-border-input !important;
+    background-color: #fff !important;
+    font-family: $font-family-base !important;
+    font-size: $font-size-base !important;
+    color: $color-text-primary !important;
+    transition: border-color $transition-fast !important;
+  }
+
+  // MUI'nin kendi fieldset border'ını kaldır (v9: MuiPickersOutlinedInput-notchedOutline)
+  :global(.MuiPickersOutlinedInput-notchedOutline) {
+    border: 0 !important;
+  }
+
+  :global(.MuiPickersOutlinedInput-root:hover) {
+    border-color: $color-brand !important;
+  }
+
+  :global(.MuiPickersOutlinedInput-root.Mui-focused) {
+    border-color: $color-brand !important;
+  }
+
+  // Input metni (v9: MuiPickersInputBase-input / sectionsContainer)
+  :global(.MuiPickersInputBase-input),
+  :global(.MuiPickersSectionList-root) {
+    padding: 0 !important;
+    font-family: $font-family-base !important;
+    font-size: $font-size-base !important;
+  }
+
+  :global(.MuiPickersSectionList-root) {
+    padding-left: $space-5 !important;
+  }
+
+  // Takvim ikonu — yeşil
+  :global(.MuiSvgIcon-root) {
+    color: $color-brand !important;
+  }
+
+  :global(.MuiIconButton-root:hover) {
+    background-color: $color-brand-10 !important;
+  }
+}
