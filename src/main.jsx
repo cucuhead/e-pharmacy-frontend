@@ -9,6 +9,8 @@ import { store } from '@redux/store';
 
 import './styles/global.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import '@blueprintjs/core/lib/css/blueprint.css';
+import '@blueprintjs/select/lib/css/blueprint-select.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
