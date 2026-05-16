@@ -1,0 +1,67 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: $space-5 0;
+}
+
+.arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-circle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-bg-card;
+  border: 1px solid $color-border;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+  transition: background-color $transition-fast, color $transition-fast;
+
+  &:hover:not(:disabled) {
+    background-color: $color-brand-10;
+    color: $color-brand;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.dot {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-circle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  transition: background-color $transition-fast, color $transition-fast;
+
+  &:hover:not(.active) {
+    background-color: $color-brand-10;
+    color: $color-brand;
+  }
+}
+
+.active {
+  background-color: $color-brand;
+  color: #fff;
+}
+
+.ellipsis {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-text-muted;
+}
