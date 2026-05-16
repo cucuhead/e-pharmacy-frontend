@@ -1,0 +1,165 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+// 2 kolonlu satır — her input yarı genişlik
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-4;
+
+  @include mobile-only {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  min-width: 0;
+}
+
+.error {
+  color: $color-danger;
+  font-size: $font-size-xs;
+  margin-left: $space-4;
+}
+
+.actions {
+  display: flex;
+  gap: $space-3;
+  margin-top: $space-5;
+}
+
+// === Blueprint Select — bizim Input ile birebir aynı görünüm ===
+
+.categorySelect {
+  width: 100%;
+  display: block;
+
+  // Blueprint'in sardığı container tam genişlik
+  :global(.bp5-popover-target),
+  :global(.bp6-popover-target) {
+    width: 100%;
+    display: block;
+  }
+
+  // Buton = Input görünümü
+  :global(.bp5-button),
+  :global(.bp6-button) {
+    width: 100%;
+    height: 54px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 $space-5;
+    border-radius: $radius-pill;
+    border: 1px solid $color-border-input;
+    background: #fff;
+    background-image: none;
+    box-shadow: none;
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    color: $color-text-primary;
+
+    &:hover {
+      border-color: $color-brand;
+      background: #fff;
+      box-shadow: none;
+    }
+  }
+
+  :global(.bp5-button:active),
+  :global(.bp5-button.bp5-active),
+  :global(.bp6-button:active),
+  :global(.bp6-button.bp6-active) {
+    background: #fff;
+    box-shadow: none;
+  }
+
+  // Caret ikonu rengi
+  :global(.bp5-icon),
+  :global(.bp6-icon) {
+    color: $color-text-muted;
+  }
+}
+
+.placeholder {
+  color: $color-text-muted;
+}
+
+// === Dropdown menüsü ===
+// === Dropdown menüsü — Figma yeşil kutu (224×140, radius 15) ===
+// Blueprint popover'ın dış beyaz kabını şeffaf yap —
+// sadece içteki yeşil bp6-menu görünsün
+:global(.bp6-popover),
+:global(.bp5-popover),
+:global(.bp6-popover-content),
+:global(.bp5-popover-content) {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 15px !important;
+}
+
+// Popover'ın küçük üçgen "ok"unu gizle (mockup'ta yok)
+:global(.bp6-popover-arrow),
+:global(.bp5-popover-arrow) {
+  display: none !important;
+}
+:global(ul.bp6-menu),
+:global(ul.bp5-menu) {
+  width: 224px !important;
+  height: 140px !important;
+  max-height: 140px !important;
+  overflow-y: auto !important;
+  background-color: $color-brand !important;
+  border-radius: 15px !important;
+  padding: $space-3 $space-3 !important;
+  box-shadow: $shadow-modal !important;
+  list-style: none !important;
+}
+
+// Bizim menü öğemiz
+.menuItem {
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: $radius-sm;
+  padding: $space-2 $space-3;
+  font-size: $font-size-base;
+  cursor: pointer;
+  transition: color $transition-fast, background-color $transition-fast;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+  }
+}
+
+.menuItemActive {
+  color: #fff;
+  font-weight: $font-weight-semibold;
+}
+
+// Yeşil zeminde ince beyaz scrollbar
+:global(ul.bp6-menu)::-webkit-scrollbar,
+:global(ul.bp5-menu)::-webkit-scrollbar {
+  width: 14px;
+}
+
+:global(ul.bp6-menu)::-webkit-scrollbar-thumb,
+:global(ul.bp5-menu)::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  border: 4px solid transparent;
+  background-clip: padding-box;
+}
+
+:global(ul.bp6-menu)::-webkit-scrollbar-track,
+:global(ul.bp5-menu)::-webkit-scrollbar-track {
+  background: transparent;
+}
+
